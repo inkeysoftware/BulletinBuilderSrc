@@ -1,0 +1,3 @@
+buildPath=C:\AsiaBulletin-SVN\trunk
+projectID=2020-06
+masterFile=G:\My Drive\Asia Bulletin\AB Sync\!ABMaster 2020-06.txt
