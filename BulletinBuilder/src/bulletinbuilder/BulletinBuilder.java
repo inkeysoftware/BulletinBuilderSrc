@@ -44,6 +44,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.layout.ColumnConstraints;
@@ -58,6 +59,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+/*
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
 import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
@@ -72,6 +74,7 @@ import com.google.api.services.gmail.Gmail;
 import com.google.api.services.gmail.GmailScopes;
 import com.google.api.services.gmail.model.Label;
 import com.google.api.services.gmail.model.ListLabelsResponse;
+*/
 
  
 
@@ -99,17 +102,19 @@ public class BulletinBuilder extends Application {
     private long lastModified = 0;
     private String defCmd = "build.cmd";  // The command to run when the master file is updated. TODO: instead of hard-coding this, make it the first button.
     
-
+/*
     private static final String APPLICATION_NAME = "Gmail API Java Quickstart";
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
     private static final String TOKENS_DIRECTORY_PATH = "tokens";
-
+*/
     /**
      * Global instance of the scopes required by this quickstart.
      * If modifying these scopes, delete your previously saved tokens/ folder.
      */
+/*
     private static final List<String> SCOPES = Collections.singletonList(GmailScopes.GMAIL_LABELS);
     private static final String CREDENTIALS_FILE_PATH = "/credentials.json";
+*/
 
     /**
      * Creates an authorized Credential object.
@@ -117,6 +122,7 @@ public class BulletinBuilder extends Application {
      * @return An authorized Credential object.
      * @throws IOException If the credentials.json file cannot be found.
      */
+ /*
     private static Credential getCredentials(final NetHttpTransport HTTP_TRANSPORT) throws IOException {
         // Load client secrets.
         InputStream in = BulletinBuilder.class.getResourceAsStream(CREDENTIALS_FILE_PATH);
@@ -156,7 +162,7 @@ public class BulletinBuilder extends Application {
         }
     }
     
-    
+*/    
     
      private void loadSettings() {
         prefs = Preferences.userRoot().node("SilBulletinbuilder");
@@ -212,6 +218,11 @@ public class BulletinBuilder extends Application {
         Tab tab1 = new Tab("Dashboard", grid);
         tab1.setClosable(false);
         tabPane.getTabs().add(tab1);
+        
+        theStage.getIcons().add(
+   new Image(BulletinBuilder.class.getResourceAsStream( "icon.png" ))); 
+        
+        //theStage.getIcons().add(new Image("file:icon.png"));
 
         VBox vBox = new VBox(tabPane);
         Scene scene = new Scene(vBox);
